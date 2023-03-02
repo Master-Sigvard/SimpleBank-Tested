@@ -45,7 +45,7 @@ describe("SimpleBank", () => {
         expect(contractSum).to.eq(sum)
       });
 
-      it("should reject start from everyone exept owner", async () => {
+      it("should reject start from everyone except owner", async () => {
         await expect(simpleBank.connect(acc1).start(100)).to.be.rejected
       })
 
@@ -65,7 +65,7 @@ describe("SimpleBank", () => {
 
     // add a test to test array support in `addMember()` function
 
-    it("should reject addMember from everyone exept owner", async () => {
+    it("should reject addMember from everyone except owner", async () => {
         await expect(simpleBank.connect(acc1).addMember(acc2.address)).to.be.rejected
     })
 
@@ -108,7 +108,7 @@ describe("SimpleBank", () => {
         expect(sum).to.eq(0)
     })
 
-    it("should revert withdraw with wrong balance and from everyone exept owner", async () => {
+    it("should revert withdraw with wrong balance and from everyone except owner", async () => {
         await simpleBank.start(50)
 
         await simpleBank.addToBalance({value:40})
