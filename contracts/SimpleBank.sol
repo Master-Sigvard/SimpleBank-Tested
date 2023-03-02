@@ -55,10 +55,6 @@ contract SimpleBank is Ownable {
         return sum - balance;
     }
 
-    function viewCurrentBankState() public view returns (bool) {
-        return currentBankState;
-    }
-
     function isAccMember(address _user) public view returns (bool) {
         return isMember[_user];
     } 
