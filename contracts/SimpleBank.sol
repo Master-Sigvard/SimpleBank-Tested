@@ -27,13 +27,13 @@ contract SimpleBank is Ownable {
         currentBankState = true;
     }
 
+
+    ///@dev do array support
     function addMember(address _user) external onlyOwner {
         isMember[_user] = true;
         members.push(_user);
     }
 
-
-    ///@dev do mapping
     function withdraw() external onlyOwner {
         require(rest() == 0);
         currentBankState = false;
