@@ -33,12 +33,12 @@ contract SimpleBank is Ownable {
     }
 
 
-    ///@dev do mapping
     function withdraw() external onlyOwner {
         require(rest() == 0);
         currentBankState = false;
         membersReset();
         sum = 0;
+        balance = 0;
         (bool success,) = owner().call{ value:sum }( "" );
         require(success);
     }
@@ -51,10 +51,6 @@ contract SimpleBank is Ownable {
 
     function rest () public view returns(uint) {
         return sum - balance;
-    }
-
-    function viewCurrentBankState() public view returns (bool) {
-        return currentBankState;
     }
 
     function isAccMember(address _user) public view returns (bool) {
