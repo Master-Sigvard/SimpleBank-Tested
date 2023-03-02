@@ -45,6 +45,10 @@ describe("SimpleBank", () => {
         expect(contractSum).to.eq(sum)
       });
 
+      it("should reject start from everyone exept owner", async () => {
+        await expect(simpleBank.connect(acc1).start(100)).to.be.rejected
+      })
+
 
     it("should add new member to mapping and array with function addMember", async () => {
         const sum = 100
@@ -57,5 +61,11 @@ describe("SimpleBank", () => {
 
         const member = await simpleBank.members(1)
         expect(member).to.eq(acc1.address)
+    })
+
+    // add a test to test array support in `addMember()` function
+
+    it("should reject addMember from everyone exept owner", async () => {
+        await expect(simpleBank.connect(acc1).addMember(acc2.address)).to.be.rejected
     })
 })
