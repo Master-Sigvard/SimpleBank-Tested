@@ -12,7 +12,7 @@ contract SimpleBank is Ownable {
     bool public currentBankState;
 
     ///@dev do mapping
-    mapping (address => bool) isMember;
+    mapping (address => bool) public isMember;
     address [] public members;
     
     function addToBalance() external payable {
