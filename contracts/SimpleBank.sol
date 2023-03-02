@@ -34,11 +34,13 @@ contract SimpleBank is Ownable {
         members.push(_user);
     }
 
+
     function withdraw() external onlyOwner {
         require(rest() == 0);
         currentBankState = false;
         membersReset();
         sum = 0;
+        balance = 0;
         (bool success,) = owner().call{ value:sum }( "" );
         require(success);
     }
