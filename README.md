@@ -1,1 +1,1 @@
-Simple piggy bank with somehow codet tests
+Simple piggy bank with somehow coded tests
