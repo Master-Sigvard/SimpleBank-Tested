@@ -57,5 +57,9 @@ contract SimpleBank is Ownable {
         return currentBankState;
     }
 
+    function isAccMember(address _user) public view returns (bool) {
+        return isMember[_user];
+    } 
+
 
 }
